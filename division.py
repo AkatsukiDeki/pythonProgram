@@ -137,7 +137,7 @@ def split_csv_by_weeks(input_file: str, num_files: int):
             if file_name.endswith('.csv'):
                 # Перемещение файл в целевую папку
                 shutil.move(file_name, datasets)
-def main(start_date: datetime, end_date: datetime, data_file: str, weather_data_iter: WeatherDataIterator):
+def main():
     """Основная функция программы для обработки данных о погоде.
 
     Args:
