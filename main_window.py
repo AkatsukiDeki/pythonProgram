@@ -10,6 +10,24 @@ import modules.search as ds
 import modules.iterator as d_iter
 import modules.division as dd
 
+import shutil
+import os
+import datetime
+
+file_name = 'dataset.csv'
+target_folder = 'C:\\Users\\andre\\PycharmProjects\\pythonProject\\pythonProject4\\pythonProgram\\target_folder'
+
+timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+new_file_name = f"{timestamp}_{file_name}"
+new_file_path = os.path.join(target_folder, new_file_name)
+
+if os.path.exists(new_file_path):
+    new_file_path = shutil.copy2(file_name, target_folder)
+    print("Файл успешно скопирован с уникальным именем:", new_file_path)
+else:
+    shutil.move(file_name, new_file_path)
+    print(f"Файл успешно перемещен с уникальным именем: {new_file_name}")
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

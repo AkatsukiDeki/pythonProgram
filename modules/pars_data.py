@@ -85,6 +85,7 @@ def get_table_data(src, year, month):
     return data_table
 
 
+
 def write_to_csv(data_table):
     """
        Записывает извлеченные данные о погоде в CSV-файл.

@@ -30,6 +30,7 @@ class WeatherDataIterator:
         Возвращает:
         - None
         """
+
     def __init__(self, start_date: datetime, end_date: datetime, data_file: str):
         self.start_date = start_date
         self.end_date = end_date
@@ -64,6 +65,21 @@ data_file = 'weather_data.csv'
 
 weather_data_iter = WeatherDataIterator(start_date, end_date, data_file)
 
+def division_date_and_data(directory_path: str, file_path: str) -> None:
+    """Splitting the main file into two files by date and by data
+    Args:
+      directory_path: the path to the working directory for the shift
+    """
+    path = os.getcwd()
+    os.chdir(directory_path)
+    data = ef.read_data(file_path)
+    with open('X.csv', 'w', encoding="utf-8", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerows([i[0].split("-") for i in data])
+    with open('Y.csv', 'w', encoding="utf-8", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerows([i[1:] for i in data])
+    os.chdir(path)
 
 def split_csv_by_weeks(input_file, num_files):
     """Функция для разделения csv-файла на отдельные файлы по неделям
@@ -115,14 +131,15 @@ def split_csv_by_weeks(input_file, num_files):
 
 
         print(f"Файл {file_name} успешно создан.")
-        target_folder = "C:\\Users\\andre\\PycharmProjects\\pythonProject\\pythonProject4\\pythonProgram\\target_folder"  # Замените на реальный путь
+
+        datasets= "C:\\Users\\andre\\PycharmProjects\\pythonProject\\pythonProject4\\pythonProgram\\datasets"  # Замените на реальный путь
 
         # Прохождение по всем файлам в текущем каталоге
         for file_name in os.listdir(os.curdir):
             # Проверка, является ли файл csv
             if file_name.endswith('.csv'):
                 # Перемещение файл в целевую папку
-                shutil.move(file_name, target_folder)
+                shutil.move(file_name, datasets)
 
 
 
