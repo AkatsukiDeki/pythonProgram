@@ -87,11 +87,7 @@ def split_csv_by_weeks(input_file: str, num_files: int):
        Возвращает:
        - None
        """
-    start_date = datetime(2023, 1, 1)
-    end_date = datetime(2023, 12, 31)
-    data_file = 'weather_data.csv'
-
-    weather_data_iter = WeatherDataIterator(start_date, end_date, data_file)
+    
     # Читаем исходный csv файл
     with open(input_file, 'r') as file:
         reader = csv.reader(file)
@@ -141,6 +137,28 @@ def split_csv_by_weeks(input_file: str, num_files: int):
             if file_name.endswith('.csv'):
                 # Перемещение файл в целевую папку
                 shutil.move(file_name, datasets)
+def main(start_date: datetime, end_date: datetime, data_file: str, weather_data_iter: WeatherDataIterator):
+    """Основная функция программы для обработки данных о погоде.
+
+    Args:
+    - start_date (datetime): Начальная дата для анализа данных.
+    - end_date (datetime): Конечная дата для анализа данных.
+    - data_file (str): Имя файла с данными о погоде.
+    - weather_data_iter (WeatherDataIterator): Итератор для работы с данными о погоде.
+
+    Returns:
+    - None
+    """
+    # Основная логика программы
+    # Вызов других функций и выполнение операций по обработке данных
+    start_date = datetime(2023, 1, 1)
+    end_date = datetime(2023, 12, 31)
+    data_file = 'weather_data.csv'
+
+    weather_data_iter = WeatherDataIterator(start_date, end_date, data_file)
+    get_data_for_date(start_date, data_file)
+    division_date_and_data(directory_path, file_path)
+    split_csv_by_weeks(input_file, num_files)
 
 if __name__ == '__main__':
     main()
