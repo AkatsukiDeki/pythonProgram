@@ -58,12 +58,6 @@ class WeatherDataIterator:
 
         # Возвращаем кортеж с текущей датой и соответствующими данными
         return (self.current_date - timedelta(days=1), data)
-def main():
-    start_date = datetime(2023, 1, 1)
-    end_date = datetime(2023, 12, 31)
-    data_file = 'weather_data.csv'
-
-    weather_data_iter = WeatherDataIterator(start_date, end_date, data_file)
 
 def division_date_and_data(directory_path: str, file_path: str) -> None:
     """Splitting the main file into two files by date and by data
@@ -93,6 +87,11 @@ def split_csv_by_weeks(input_file: str, num_files: int):
        Возвращает:
        - None
        """
+    start_date = datetime(2023, 1, 1)
+    end_date = datetime(2023, 12, 31)
+    data_file = 'weather_data.csv'
+
+    weather_data_iter = WeatherDataIterator(start_date, end_date, data_file)
     # Читаем исходный csv файл
     with open(input_file, 'r') as file:
         reader = csv.reader(file)
