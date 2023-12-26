@@ -6,7 +6,7 @@ import os
 import modules.add_functions as ef
 
 
-def get_data_for_date(current_date, data_file):
+def get_data_for_date(current_date: datetime, data_file:str):
     """Функция для получения данных за определенную дату
 
     Аргументы:
@@ -83,7 +83,7 @@ def division_date_and_data(directory_path: str, file_path: str) -> None:
 
 
 
-def split_csv_by_weeks(input_file, num_files):
+def split_csv_by_weeks(input_file: str, num_files: int):
     """Функция для разделения csv-файла на отдельные файлы по неделям
 
        Аргументы:
