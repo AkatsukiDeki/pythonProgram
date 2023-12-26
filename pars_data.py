@@ -6,7 +6,6 @@ import os
 
 
 
-
 def get_url(year: int, month: int):
     """
         Строит URL для указанного года и месяца.
