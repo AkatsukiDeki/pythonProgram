@@ -7,7 +7,7 @@ import os
 
 
 
-def get_url(year, month):
+def get_url(year: int, month: int):
     """
         Строит URL для указанного года и месяца.
 
@@ -23,7 +23,7 @@ def get_url(year, month):
     return url
 
 
-def get_data(url):
+def get_data(url: str):
     """
         Получает HTML-код страницы по указанному URL.
 
@@ -42,7 +42,7 @@ def get_data(url):
     return src
 
 
-def get_table_data(src, year, month):
+def get_table_data(src: str, year: int, month: int):
     """
         Извлекает данные о погоде из HTML-кода для указанного года и месяца.
 
@@ -86,7 +86,7 @@ def get_table_data(src, year, month):
 
 
 
-def write_to_csv(data_table):
+def write_to_csv(data_table: list):
     """
        Записывает извлеченные данные о погоде в CSV-файл.
 
