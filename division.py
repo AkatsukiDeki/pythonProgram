@@ -143,9 +143,5 @@ def split_csv_by_weeks(input_file: str, num_files: int):
                 # Перемещение файл в целевую папку
                 shutil.move(file_name, datasets)
 
-
-
-split_csv_by_weeks('dataset.csv', 6)
-
 if __name__ == '__main__':
     main()
