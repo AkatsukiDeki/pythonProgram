@@ -82,6 +82,7 @@ def division_date_and_data(directory_path: str, file_path: str) -> None:
     os.chdir(path)
 
 
+
 def split_csv_by_weeks(input_file, num_files):
     """Функция для разделения csv-файла на отдельные файлы по неделям
 
